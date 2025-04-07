@@ -516,9 +516,10 @@ ul {
 .video-section {
     padding: 120px 0;
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('images/f2.avif') center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('images/f2.avif') center center/cover;
 }
+
 /*.video-section {*/
 /*    padding: 120px 0;*/
 /*    position: relative;*/
@@ -557,7 +558,7 @@ ul {
     overflow: hidden;
     border-radius: 12px;
     position: relative;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .video-thumbnail img {
@@ -576,7 +577,7 @@ ul {
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -593,7 +594,7 @@ ul {
 }
 
 .text-light {
-    color: rgba(255,255,255,0.9) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* Diverse Product Range Section */
@@ -607,12 +608,12 @@ ul {
     border-radius: 10px;
     overflow: hidden;
     transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .product-category-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .category-image {
@@ -638,7 +639,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(44,90,160,0.8);
+    background: rgba(44, 90, 160, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -791,6 +792,7 @@ ul {
     margin-left: auto;
     margin-right: auto;
 }
+
 /* Global Partnering */
 .global-partnering-section {
     padding: 100px 0;
@@ -816,22 +818,23 @@ ul {
 
 .service-card {
     background: var(--white-color);
-    padding: 30px;
+    padding: 30px 15px;
     border-radius: 10px;
     text-align: center;
     transition: var(--transition);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    min-height: 300px;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon {
     width: 80px;
     height: 80px;
-    background: rgba(44,90,160,0.1);
+    background: rgba(44, 90, 160, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -851,13 +854,13 @@ ul {
     border-radius: 15px;
     overflow: hidden;
     transition: var(--transition);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     background: white;
 }
 
 .team-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
 .team-image {
@@ -895,7 +898,7 @@ ul {
 .social-link {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -922,7 +925,7 @@ ul {
 }
 
 .achievement-badge {
-    background: rgba(44,90,160,0.1);
+    background: rgba(44, 90, 160, 0.1);
     color: var(--primary-color);
     padding: 8px 15px;
     border-radius: 20px;
@@ -947,6 +950,7 @@ ul {
         padding: 20px;
     }
 }
+
 /* Contact Section */
 .contact-section {
     padding: 100px 0;
@@ -1228,7 +1232,7 @@ textarea.form-control {
     .hero-banner .carousel-content h1 {
         font-size: 50px;
     }
-    
+
     .section-header h2 {
         font-size: 32px;
     }
@@ -1242,32 +1246,32 @@ textarea.form-control {
         border-radius: 5px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
-    
+
     .header .navbar-nav .nav-link {
         color: var(--dark-color);
         padding: 10px 0;
     }
-    
+
     .hero-banner .carousel-content h1 {
         font-size: 40px;
     }
-    
+
     .hero-banner .carousel-content p {
         font-size: 16px;
     }
-    
+
     .stats-bar {
         margin-top: 0;
     }
-    
+
     .stats-bar .stat-item {
         margin-bottom: 20px;
     }
-    
+
     .about-content {
         margin-top: 40px;
     }
-    
+
     .section-header h2 {
         font-size: 28px;
     }
@@ -1279,46 +1283,46 @@ textarea.form-control {
         min-height: auto;
         padding: 150px 0 100px;
     }
-    
+
     .hero-banner .carousel-item {
         height: auto;
         min-height: auto;
     }
-    
+
     .hero-banner .carousel-content h1 {
         font-size: 32px;
     }
-    
+
     .hero-banner .carousel-control-prev,
     .hero-banner .carousel-control-next {
         width: 40px;
         height: 40px;
     }
-    
+
     .hero-banner .carousel-control-prev {
         left: 15px;
     }
-    
+
     .hero-banner .carousel-control-next {
         right: 15px;
     }
-    
+
     .section-header h2 {
         font-size: 26px;
     }
-    
+
     .video-content h3 {
         font-size: 28px;
     }
-    
+
     .video-content p {
         font-size: 16px;
     }
-    
+
     .sustainability-features {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-section .contact-form {
         margin-top: 40px;
     }
@@ -1328,38 +1332,38 @@ textarea.form-control {
     .hero-banner .carousel-content h1 {
         font-size: 28px;
     }
-    
+
     .section-header h2 {
         font-size: 24px;
     }
-    
+
     .stats-bar .stat-item h3 {
         font-size: 36px;
     }
-    
+
     .video-play-btn {
         width: 60px;
         height: 60px;
         font-size: 20px;
     }
-    
+
     .video-content h3 {
         font-size: 24px;
     }
-    
+
     .footer-widget {
         text-align: center;
     }
-    
+
     .footer-widget h4::after {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
     .footer-bottom .row {
         text-align: center;
     }
-    
+
     .footer-menu {
         margin-top: 15px;
         justify-content: center;
