@@ -3,14 +3,16 @@
 
 /* Global Variables */
 :root {
-    --primary-color: #2c5aa0;
-    --secondary-color: #f8b400;
-    --dark-color: #222222;
+    --primary-color: #1e4d92;
+    --secondary-color: #ff6b6b;
+    --accent-color: #4ecdc4;
+    --dark-color: #2c3e50;
     --light-color: #f8f9fa;
     --gray-color: #6c757d;
     --white-color: #ffffff;
     --black-color: #000000;
-    --transition: all 0.3s ease;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* Global Styles */
@@ -54,9 +56,9 @@ ul {
 }
 
 .btn {
-    font-weight: 500;
-    padding: 10px 25px;
-    border-radius: 4px;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
     transition: var(--transition);
     text-transform: uppercase;
     font-size: 14px;
@@ -64,16 +66,15 @@ ul {
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--white-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border: none;
+    box-shadow: var(--box-shadow);
 }
 
 .btn-primary:hover, .btn-primary:focus {
-    background-color: #1f4a8a;
-    border-color: #1f4a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     color: var(--white-color);
-    box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
 }
 
 .btn-outline-primary {
@@ -112,17 +113,21 @@ ul {
 
 .section-header .subtitle {
     display: inline-block;
-    color: var(--primary-color);
-    font-weight: 500;
-    margin-bottom: 15px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-size: 14px;
 }
 
 .section-header h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
 }
@@ -177,7 +182,10 @@ ul {
 /* Header */
 .header {
     padding: 20px 0;
-    background-color: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgb(255 255 255 / 0%);
+    box-shadow: var(--box-shadow);
     position: fixed;
     top: 0;
     left: 0;
@@ -228,6 +236,7 @@ ul {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 0.5px;
+    transition: var(--transition);
 }
 
 .header.header-shrink .navbar-nav .nav-link {
@@ -252,6 +261,23 @@ ul {
 
 .header .navbar-nav .nav-link.active {
     color: var(--primary-color);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 80%;
 }
 
 .header .dropdown-menu {
@@ -370,11 +396,14 @@ ul {
 }
 
 .stats-bar .stat-item {
-    background-color: var(--white-color);
-    padding: 30px 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 2rem;
     text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     transition: var(--transition);
 }
 
@@ -383,9 +412,11 @@ ul {
 }
 
 .stats-bar .stat-item h3 {
-    font-size: 42px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
@@ -605,15 +636,15 @@ ul {
 
 .product-category-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--box-shadow);
 }
 
 .product-category-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .category-image {
@@ -690,9 +721,12 @@ ul {
 }
 
 .testimonial-content {
-    background-color: var(--white-color);
-    padding: 40px;
-    border-radius: 5px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 2rem;
     margin-bottom: 30px;
     position: relative;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
@@ -819,16 +853,16 @@ ul {
 .service-card {
     background: var(--white-color);
     padding: 30px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     transition: var(--transition);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--box-shadow);
     min-height: 300px;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .service-icon {
@@ -854,13 +888,13 @@ ul {
     border-radius: 15px;
     overflow: hidden;
     transition: var(--transition);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--box-shadow);
     background: white;
 }
 
 .team-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .team-image {
@@ -1368,4 +1402,16 @@ textarea.form-control {
         margin-top: 15px;
         justify-content: center;
     }
+}
+
+/* Animation Classes */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

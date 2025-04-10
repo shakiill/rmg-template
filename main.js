@@ -140,27 +140,46 @@ $(document).ready(function () {
         offset: '80%'
     });
     // Partner Logos Slider
-    $('.partner-logos .row').slick({
-        infinite: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        dots: true,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {slidesToShow: 4}
-            },
-            {
-                breakpoint: 768,
-                settings: {slidesToShow: 3}
-            },
-            {
-                breakpoint: 576,
-                settings: {slidesToShow: 2}
+    // $('.partner-logos .row').slick({
+    //     infinite: true,
+    //     slidesToShow: 5,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 2000,
+    //     arrows: false,
+    //     dots: true,
+    //     responsive: [
+    //         {
+    //             breakpoint: 992,
+    //             settings: {slidesToShow: 4}
+    //         },
+    //         {
+    //             breakpoint: 768,
+    //             settings: {slidesToShow: 3}
+    //         },
+    //         {
+    //             breakpoint: 576,
+    //             settings: {slidesToShow: 2}
+    //         }
+    //     ]
+    // });
+     // Animate elements on scroll
+     function animateOnScroll() {
+        $('.fade-up').each(function() {
+            if ($(this).offset().top < $(window).scrollTop() + $(window).height() * 0.9) {
+                $(this).addClass('visible');
             }
-        ]
+        });
+    }
+
+    $(window).on('scroll', animateOnScroll);
+    setTimeout(animateOnScroll, 100);
+
+    // Add parallax effect to hero section
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        $('.carousel-background').css({
+            'transform': 'translateY(' + (scroll * 0.5) + 'px)'
+        });
     });
 });
