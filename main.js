@@ -253,46 +253,46 @@ $(document).ready(function () {
     };
 
     // Partner Logos Slider with error handling
-    const initPartnerLogos = () => {
-        const partnerLogos = $('.partner-logos .row');
+    // const initPartnerLogos = () => {
+    //     const partnerLogos = $('.partner-logos .row');
         
-        if (partnerLogos.length && typeof $.fn.slick === 'function') {
-            try {
-                partnerLogos.slick({
-                    infinite: true,
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 2000,
-                    arrows: false,
-                    dots: true,
-                    responsive: [
-                        {
-                            breakpoint: 992,
-                            settings: { slidesToShow: 4 }
-                        },
-                        {
-                            breakpoint: 768,
-                            settings: { slidesToShow: 3 }
-                        },
-                        {
-                            breakpoint: 576,
-                            settings: { slidesToShow: 2 }
-                        }
-                    ]
-                });
-            } catch (error) {
-                console.warn('Partner logos slider initialization failed:', error);
-            }
-        }
-    };
+    //     if (partnerLogos.length && typeof $.fn.slick === 'function') {
+    //         try {
+    //             partnerLogos.slick({
+    //                 infinite: true,
+    //                 slidesToShow: 5,
+    //                 slidesToScroll: 1,
+    //                 autoplay: true,
+    //                 autoplaySpeed: 2000,
+    //                 arrows: false,
+    //                 dots: true,
+    //                 responsive: [
+    //                     {
+    //                         breakpoint: 992,
+    //                         settings: { slidesToShow: 4 }
+    //                     },
+    //                     {
+    //                         breakpoint: 768,
+    //                         settings: { slidesToShow: 3 }
+    //                     },
+    //                     {
+    //                         breakpoint: 576,
+    //                         settings: { slidesToShow: 2 }
+    //                     }
+    //                 ]
+    //             });
+    //         } catch (error) {
+    //             console.warn('Partner logos slider initialization failed:', error);
+    //         }
+    //     }
+    // };
 
     // Initialize all components
     handleVideoModal();
     initContactForm();
     initWaypoints();
     initScrollHandler();
-    initPartnerLogos();
+    // initPartnerLogos();
 
     // Animate elements on scroll
     function animateOnScroll() {
