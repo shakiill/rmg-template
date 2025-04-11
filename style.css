@@ -182,10 +182,10 @@ ul {
 /* Header */
 .header {
     padding: 20px 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background-color: rgb(255 255 255 / 0%);
-    box-shadow: var(--box-shadow);
+    /* backdrop-filter: blur(10px); */
+    /* -webkit-backdrop-filter: blur(10px); */
+    /* background-color: rgb(255 255 255 / 0%); */
+    /* box-shadow: var(--box-shadow); */
     position: fixed;
     top: 0;
     left: 0;
@@ -302,20 +302,27 @@ ul {
 .hero-banner {
     position: relative;
     height: 100vh;
-    min-height: 700px;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--dark-color);
 }
 
+.hero-banner .carousel,
+.hero-banner .carousel-inner,
 .hero-banner .carousel-item {
     height: 100vh;
-    min-height: 700px;
+    width: 100%;
 }
 
 .hero-banner .carousel-background {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
+    z-index: 1;
 }
 
 .hero-banner .carousel-background::before {
@@ -325,67 +332,145 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+    z-index: 2;
 }
 
 .hero-banner .carousel-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: relative;
     height: 100%;
+    z-index: 3;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .hero-banner .carousel-content {
+    text-align: center;
     max-width: 800px;
+    margin: 0 auto;
     padding: 0 15px;
     color: var(--white-color);
 }
 
 .hero-banner .carousel-content h1 {
-    font-size: 40px;
+    font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: 20px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--white-color);
+    line-height: 1.2;
 }
 
 .hero-banner .carousel-content p {
-    font-size: 18px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     margin-bottom: 30px;
+    opacity: 0.9;
 }
 
+/* Slider Improvements */
 .hero-banner .carousel-control-prev,
 .hero-banner .carousel-control-next {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 1;
+    opacity: 0;
     transition: var(--transition);
 }
 
-.hero-banner .carousel-control-prev:hover,
-.hero-banner .carousel-control-next:hover {
-    background-color: var(--primary-color);
+.hero-banner:hover .carousel-control-prev,
+.hero-banner:hover .carousel-control-next {
+    opacity: 1;
 }
 
 .hero-banner .carousel-control-prev {
-    left: 30px;
+    left: 20px;
 }
 
 .hero-banner .carousel-control-next {
-    right: 30px;
+    right: 20px;
 }
 
 .hero-banner .carousel-control-prev-icon,
 .hero-banner .carousel-control-next-icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
+}
+
+/* Scroll Icon */
+.scroll-icon {
+    margin-top: 20px;
+    color: var(--white-color);
+    animation: scrollBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-15px);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hero Banner responsive fixes */
+@media (max-width: 767.98px) {
+    .hero-banner {
+        height: 100vh !important;
+        min-height: unset;
+        padding: 0;
+    }
+
+    .hero-banner .carousel-item {
+        height: 100vh !important;
+        min-height: unset;
+    }
+
+    .hero-banner .carousel-background {
+        background-position: center center;
+    }
+
+    .hero-banner .carousel-content {
+        padding: 0 20px;
+    }
+
+    .hero-banner .carousel-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-banner .carousel-content p {
+        font-size: 1rem;
+    }
+
+    .hero-banner .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .hero-banner .carousel-control-prev,
+    .hero-banner .carousel-control-next {
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-banner .carousel-control-prev {
+        left: 10px;
+    }
+
+    .hero-banner .carousel-control-next {
+        right: 10px;
+    }
 }
 
 /* Stats Bar */
@@ -704,7 +789,6 @@ ul {
     font-weight: 600;
     letter-spacing: 0.5px;
 }
-
 
 /* Testimonials Section */
 .testimonials-section {
@@ -1262,6 +1346,16 @@ textarea.form-control {
 }
 
 /* Responsive Styles */
+@media (max-width: 1399.98px) {
+    .hero-banner .carousel-content h1 {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    
+    .section-header h2 {
+        font-size: clamp(2rem, 3vw, 2.5rem);
+    }
+}
+
 @media (max-width: 1199.98px) {
     .hero-banner .carousel-content h1 {
         font-size: 50px;
@@ -1273,6 +1367,43 @@ textarea.form-control {
 }
 
 @media (max-width: 991.98px) {
+    /* Improved Header Mobile Navigation */
+    .header .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--white-color);
+        padding: 80px 20px 20px;
+        transition: 0.4s;
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    .header .navbar-collapse.show {
+        right: 0;
+    }
+
+    .header .navbar-toggler {
+        z-index: 9999;
+    }
+
+    /* Responsive Grid Adjustments */
+    .stats-bar .row {
+        --bs-gutter-y: 1.5rem;
+    }
+
+    .stats-bar .stat-item {
+        margin-bottom: 0;
+    }
+
+    /* Improved Spacing */
+    .section-padding {
+        padding: clamp(60px, 8vw, 100px) 0;
+    }
+
     .header .navbar-collapse {
         background-color: var(--white-color);
         padding: 20px;
@@ -1312,10 +1443,43 @@ textarea.form-control {
 }
 
 @media (max-width: 767.98px) {
+    /* Enhanced Mobile Hero */
+    .hero-banner {
+        min-height: 100vh;
+        height: auto;
+        padding: 120px 0 80px;
+    }
+
+    .hero-banner .carousel-item {
+        min-height: calc(100vh - 200px);
+    }
+
+    /* Improved Mobile Typography */
+    .hero-banner .carousel-content h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.3;
+    }
+
+    .hero-banner .carousel-content p {
+        font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    /* Better Mobile Spacing */
+    .section-header {
+        margin-bottom: clamp(30px, 5vw, 40px);
+    }
+
+    /* Enhanced Mobile Cards */
+    .service-card,
+    .team-card,
+    .product-category-card {
+        margin-bottom: 30px;
+    }
+
     .hero-banner {
         height: auto;
         min-height: auto;
-        padding: 150px 0 100px;
+        padding: 110px 0 100px;
     }
 
     .hero-banner .carousel-item {
@@ -1363,6 +1527,44 @@ textarea.form-control {
 }
 
 @media (max-width: 575.98px) {
+    /* Improved Small Mobile Layout */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Better Button Sizing */
+    .btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .btn-lg {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    /* Enhanced Mobile Footer */
+    .footer-widget {
+        text-align: left;
+    }
+
+    .footer-widget h4::after {
+        left: 0;
+        transform: none;
+    }
+
+    /* Improved Form Elements */
+    .form-control {
+        height: 45px;
+        font-size: 14px;
+    }
+
+    /* Better Mobile Navigation */
+    .header .navbar-brand img {
+        max-height: 35px;
+    }
+
     .hero-banner .carousel-content h1 {
         font-size: 28px;
     }
@@ -1404,14 +1606,49 @@ textarea.form-control {
     }
 }
 
-/* Animation Classes */
+/* New Utility Classes */
+.gap-10 { gap: 10px; }
+.gap-20 { gap: 20px; }
+.gap-30 { gap: 30px; }
+
+/* Enhanced Animation Classes */
 .fade-up {
     opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Improved Hover Effects */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* Better Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Enhanced Touch Interactions */
+@media (hover: none) {
+    .btn:hover {
+        transform: none !important;
+    }
+    
+    .hover-scale:hover {
+        transform: none;
+    }
 }
