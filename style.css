@@ -1849,3 +1849,78 @@ textarea.form-control {
         height: 250px;
     }
 }
+
+/* Capacity Page Styles */
+.capacity-stat-card {
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.capacity-stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.capacity-stat-card .stat-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(44, 90, 160, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    color: var(--primary-color);
+}
+
+.capacity-stat-card h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.production-line-card {
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    height: 100%;
+}
+
+.production-line-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.line-specs {
+    margin-bottom: 20px;
+}
+
+.line-specs li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.line-specs li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.daily-capacity {
+    background: rgba(44, 90, 160, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.equipment-table th {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
